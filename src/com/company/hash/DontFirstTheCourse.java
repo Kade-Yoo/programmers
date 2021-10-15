@@ -42,12 +42,15 @@ public class DontFirstTheCourse {
      * @return 완주하지 못한 마라토너
      */
     private String getMarathonerDontFirstTheCourse(Marathoner participant, Marathoner completion) {
-        for (int i = 0; i < completion.getMarathoner().length; i++) {
-            if (!participant.getMarathoner()[i].equals(completion.getMarathoner()[i])) {
-                return participant.getMarathoner()[i];
+        String[] participantMarathoner = participant.getMarathoner();
+        String[] completionMarathoner = completion.getMarathoner();
+
+        for (int i = 0; i < completionMarathoner.length; i++) {
+            if (!participantMarathoner[i].equals(completionMarathoner[i])) {
+                return participantMarathoner[i];
             }
         }
-        return participant.getMarathoner()[completion.getMarathoner().length];
+        return participantMarathoner[completionMarathoner.length];
     }
 
     /**
